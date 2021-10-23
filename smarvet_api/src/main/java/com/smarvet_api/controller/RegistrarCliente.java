@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/clientes") ///identificador sustantivos en plural con relacion a la entidad
@@ -18,6 +19,12 @@ public class RegistrarCliente {
 
     public RegistrarCliente(ClienteService clienteService) {
         this.clienteService = clienteService;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Cliente>> listarCliente() {
+        List<Cliente> cliente = clienteService.listarCliente();
+        return new ResponseEntity<List<Cliente>>(cliente, HttpStatus.CREATED);
     }
 
     @PostMapping
