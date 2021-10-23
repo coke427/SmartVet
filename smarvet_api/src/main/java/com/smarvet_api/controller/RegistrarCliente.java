@@ -27,6 +27,12 @@ public class RegistrarCliente {
         return new ResponseEntity<List<Cliente>>(cliente, HttpStatus.CREATED);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Cliente> obtenerClientePorId(@PathVariable ("id")Integer idCliente) {
+        Cliente cliente= clienteService.obtenerClientePorId(idCliente);
+        return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity <Cliente> registrarCliente (@RequestBody Cliente cliente) {
         Cliente cliente1 = clienteService.registrarCliente(cliente);
