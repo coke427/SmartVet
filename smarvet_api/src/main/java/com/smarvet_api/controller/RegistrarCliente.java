@@ -38,4 +38,10 @@ public class RegistrarCliente {
         Cliente clienteUpdate = clienteService.modificarCliente(cliente);
         return new ResponseEntity<Cliente>(clienteUpdate, HttpStatus.CREATED);
     }
+
+   @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarCliente(@PathVariable ("id")Integer idCliente) {
+        clienteService.eliminarCliente(idCliente);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
 }

@@ -10,6 +10,7 @@ public interface ClienteService {
     Cliente registrarCliente(Cliente cliente);
     Cliente modificarCliente (Cliente cliente);
     List<Cliente> listarCliente();
+    void eliminarCliente(Integer idCliente);
 
 
 }

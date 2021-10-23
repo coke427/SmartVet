@@ -43,7 +43,6 @@ public class RegistrarMascota {
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarMascota(@PathVariable ("id")Integer idMascota) {
-        //Mascota mascota= mascotaService.obtenerMascotaPorId(idMascota);
         mascotaService.eliminarMascota(idMascota);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
