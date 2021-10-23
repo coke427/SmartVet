@@ -5,10 +5,9 @@ import com.smarvet_api.service.ClienteService;
 import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/clientes") ///identificador sustantivos en plural con relacion a la entidad
@@ -25,5 +24,11 @@ public class RegistrarCliente {
     public ResponseEntity <Cliente> registrarCliente (@RequestBody Cliente cliente) {
         Cliente cliente1 = clienteService.registrarCliente(cliente);
         return new ResponseEntity<Cliente>(cliente1, HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<Cliente> modificarCliente(@Valid @RequestBody Cliente cliente) {
+        Cliente clienteUpdate = clienteService.modificarCliente(cliente);
+        return new ResponseEntity<Cliente>(clienteUpdate, HttpStatus.CREATED);
     }
 }
