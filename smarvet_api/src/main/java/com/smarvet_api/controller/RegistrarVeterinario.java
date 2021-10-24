@@ -1,5 +1,6 @@
 package com.smarvet_api.controller;
 
+import com.smarvet_api.model.Cliente;
 import com.smarvet_api.model.Veterinario;
 import com.smarvet_api.service.VeterinarioService;
 import lombok.Value;
@@ -24,9 +25,17 @@ public class RegistrarVeterinario {
         Veterinario veterinario1 = veterinarioService.registrarVeterinario(veterinario);
         return new ResponseEntity<Veterinario>(veterinario1, HttpStatus.CREATED);
     }
+
+    @PutMapping
+    public ResponseEntity<Veterinario> modificarVeterinario(@Valid @RequestBody Veterinario veterinario) {
+        Veterinario veterinarioUpdate = veterinarioService.modificarVeterinario(veterinario);
+        return new ResponseEntity<Veterinario>(veterinarioUpdate, HttpStatus.CREATED);
+    }
+
     @GetMapping
     public ResponseEntity<List<Veterinario>> listarVeterinario() {
         List<Veterinario> veterinario = veterinarioService.listarVeterinario();
         return new ResponseEntity<List<Veterinario>>(veterinario, HttpStatus.CREATED);
     }
+
 }
