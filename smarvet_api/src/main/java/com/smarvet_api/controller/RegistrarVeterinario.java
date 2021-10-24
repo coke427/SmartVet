@@ -5,12 +5,10 @@ import com.smarvet_api.service.VeterinarioService;
 import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/veterinarios")
@@ -25,5 +23,10 @@ public class RegistrarVeterinario {
     public ResponseEntity<Veterinario> registrarVeterinario (@Valid @RequestBody Veterinario veterinario) {
         Veterinario veterinario1 = veterinarioService.registrarVeterinario(veterinario);
         return new ResponseEntity<Veterinario>(veterinario1, HttpStatus.CREATED);
+    }
+    @GetMapping
+    public ResponseEntity<List<Veterinario>> listarVeterinario() {
+        List<Veterinario> veterinario = veterinarioService.listarVeterinario();
+        return new ResponseEntity<List<Veterinario>>(veterinario, HttpStatus.CREATED);
     }
 }

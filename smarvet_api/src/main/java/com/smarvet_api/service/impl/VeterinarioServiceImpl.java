@@ -6,6 +6,8 @@ import com.smarvet_api.service.VeterinarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VeterinarioServiceImpl implements VeterinarioService{
     @Autowired
@@ -16,4 +18,10 @@ public class VeterinarioServiceImpl implements VeterinarioService{
     {
         return veterinarioRepository.save(veterinario);
     }
+
+    @Override
+    public List<Veterinario> listarVeterinario() {
+        return veterinarioRepository.findAll();
+    }
+
 }
