@@ -24,5 +24,9 @@ public class VeterinarioServiceImpl implements VeterinarioService{
     public List<Veterinario> listarVeterinario() {
         return veterinarioRepository.findAll();
     }
+    @Override
+    public Veterinario obtenerVeterinarioPorId (Integer idVeterinario) {
+        return veterinarioRepository.findById(idVeterinario).orElse(new Veterinario());
+    }
 
 }
