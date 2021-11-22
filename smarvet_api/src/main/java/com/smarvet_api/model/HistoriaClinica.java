@@ -4,7 +4,7 @@ package com.smarvet_api.model;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
 
 @Entity
 @Table(name="historiasClinicas")
@@ -15,7 +15,7 @@ public class HistoriaClinica {
     private Integer idhistoriaClinica;
 
     @NotNull
-    @Size(min = 1, message = "Numero de ficha debe tener como minimo 1 numero")
+    @Min(value = 1, message="Numero de ficha debe tener como minimo 1 numero")
     @Column(name ="numero_ficha", nullable = false, length = 5)
     private Integer numeroFicha;
 
