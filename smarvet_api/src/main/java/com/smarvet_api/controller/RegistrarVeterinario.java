@@ -43,4 +43,5 @@ public class RegistrarVeterinario {
         return new ResponseEntity<Veterinario>(veterinario, HttpStatus.OK);
     }
 
+
 }
