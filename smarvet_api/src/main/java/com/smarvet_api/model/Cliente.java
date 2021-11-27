@@ -1,9 +1,12 @@
 package com.smarvet_api.model;
 
 import com.sun.istack.NotNull;
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+@Data
 @Entity
 @Table(name="clientes")
 public class Cliente {
@@ -40,68 +43,4 @@ public class Cliente {
     private String emailCliente;
 
 
-
-    public Integer getIdcliente() {
-        return idcliente;
-    }
-
-    public void setIdcliente(Integer idcliente) {
-        this.idcliente = idcliente;
-    }
-
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
-    }
-
-    public String getApellidoCliente() {
-        return apellidoCliente;
-    }
-
-    public void setApellidoCliente(String apellidoCliente) {
-        this.apellidoCliente = apellidoCliente;
-    }
-
-    public String getDniCliente() {
-        return dniCliente;
-    }
-
-    public void setDniCliente(String dniCliente) {
-        this.dniCliente = dniCliente;
-    }
-
-    public String getTelefonoCliente() {
-        return telefonoCliente;
-    }
-
-    public void setTelefonoCliente(String telefonoCliente) {
-        this.telefonoCliente = telefonoCliente;
-    }
-
-    public String getCelularCliente() {
-        return celularCliente;
-    }
-
-    public void setCelularCliente(String celularCliente) {
-        this.celularCliente = celularCliente;
-    }
-
-    public String getDireccionCliente() {
-        return direccionCliente;
-    }
-
-    public void setDireccionCliente(String direccionCliente) {
-        this.direccionCliente = direccionCliente;
-    }
-
-    public String getEmailCliente() {
-        return emailCliente;
-    }
-
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
-    }
 }

@@ -1,9 +1,12 @@
 package com.smarvet_api.model;
 
 import com.sun.istack.NotNull;
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+@Data
 @Entity
 @Table(name="veterinarios")
 public class Veterinario {
@@ -38,59 +41,4 @@ public class Veterinario {
     @Column (name="email_veterinario", nullable = true, length = 100)
     private String emailVeterinario;
 
-    public Integer getIdVeterinario() {
-        return idVeterinario;
-    }
-    public void setIdVeterinario(Integer idVeterinario) {
-        this.idVeterinario = idVeterinario;
-    }
-    public String getNombreVeterinario() {
-        return nombreVeterinario;
-    }
-
-    public void setNombreVeterinario(String nombreVeterinario) {
-        this.nombreVeterinario = nombreVeterinario;
-    }
-    public String getApellidoVeterinario() {
-        return apellidoVeterinario;
-    }
-
-    public void setApellidoVeterinario(String apellidoVeterinario) {
-        this.apellidoVeterinario = apellidoVeterinario;
-    }
-    public String getDniVeterinario() {
-        return dniVeterinario;
-    }
-
-    public void setDniVeterinario(String dniVeterinario) {
-        this.dniVeterinario = dniVeterinario;
-    }
-    public String getTelefonoVeterinario() {
-        return telefonoVeterinario;
-    }
-
-    public void setTelefonoVeterinario(String telefonoVeterinario) {
-        this.telefonoVeterinario = telefonoVeterinario;
-    }
-    public String getCelularVeterinario() {
-        return celularVeterinario;
-    }
-
-    public void setCelularVeterinario(String celularVeterinario) {
-        this.celularVeterinario = celularVeterinario;
-    }
-    public String getDireccionVeterinario() {
-        return direccionVeterinario;
-    }
-
-    public void setDireccionVeterinario(String direccionVeterinario) {
-        this.direccionVeterinario = direccionVeterinario;
-    }
-
-    public String getEmailVeterinario() {
-        return emailVeterinario;
-    }
-    public void setEmailVeterinario(String emailVeterinario) {
-        this.emailVeterinario = emailVeterinario;
-    }
 }

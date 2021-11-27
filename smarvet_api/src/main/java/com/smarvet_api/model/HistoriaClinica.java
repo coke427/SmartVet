@@ -2,17 +2,20 @@ package com.smarvet_api.model;
 
 
 import com.sun.istack.NotNull;
+import lombok.Data;
 
+import javax.annotation.sql.DataSourceDefinitions;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 
 @Entity
+@Data
 @Table(name="historiasClinicas")
 public class HistoriaClinica {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idhistoriaClinica;
+    private Integer idHistoriaClinica;
 
     @NotNull
     @Min(value = 1, message="Numero de ficha debe tener como minimo 1 numero")
@@ -31,43 +34,12 @@ public class HistoriaClinica {
     @Column(name ="tratamiento", nullable = false, length = 100)
     private String tratamiento;
 
-    public Integer getIdhistoriaClinica() {
-        return idhistoriaClinica;
-    }
+    @ManyToOne
+    @JoinColumn(
+            name="id_cita",
+            nullable = false,
+            foreignKey = @ForeignKey(name="FK_historia_cita")
+    )
+    private Cita idCita;
 
-    public void setIdhistoriaClinica(Integer idhistoriaClinica) {
-        this.idhistoriaClinica = idhistoriaClinica;
-    }
-
-    public Integer getNumeroFicha() {
-        return numeroFicha;
-    }
-
-    public void setNumeroFicha(Integer numeroFicha) {
-        this.numeroFicha = numeroFicha;
-    }
-
-    public String getObservacion() {
-        return observacion;
-    }
-
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
-    }
-
-    public String getDiagnostico() {
-        return diagnostico;
-    }
-
-    public void setDiagnostico(String diagnostico) {
-        this.diagnostico = diagnostico;
-    }
-
-    public String getTratamiento() {
-        return tratamiento;
-    }
-
-    public void setTratamiento(String tratamiento) {
-        this.tratamiento = tratamiento;
-    }
 }
