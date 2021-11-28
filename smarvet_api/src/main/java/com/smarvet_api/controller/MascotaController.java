@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/mascotas")
+@RequestMapping("/mascota")
 public class RegistrarMascota {
     private final MascotaService mascotaService;
 

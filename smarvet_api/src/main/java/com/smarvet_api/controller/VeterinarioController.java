@@ -2,7 +2,6 @@ package com.smarvet_api.controller;
 
 import com.smarvet_api.model.Veterinario;
 import com.smarvet_api.service.VeterinarioService;
-import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
