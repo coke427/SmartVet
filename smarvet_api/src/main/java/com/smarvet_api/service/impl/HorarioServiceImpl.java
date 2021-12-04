@@ -2,7 +2,6 @@ package com.smarvet_api.service.impl;
 
 
 import com.smarvet_api.model.Horario;
-import com.smarvet_api.model.Veterinario;
 import com.smarvet_api.repositories.HorarioRepository;
 import com.smarvet_api.service.HorarioService;
 import org.springframework.stereotype.Service;
@@ -24,13 +23,8 @@ public class HorarioServiceImpl implements HorarioService {
     }
 
     @Override
-    public List<Horario> listAll() {
+    public List<Horario> listHorarios() {
         return null;
-    }
-
-    @Override
-    public List<Horario> listHorariosByVeterinario(Veterinario veterinario) {
-        return this.horarioRepository.getByIdVeterinario(veterinario);
     }
 
     @Override

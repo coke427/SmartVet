@@ -4,7 +4,6 @@ package com.smarvet_api.model;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
-import javax.annotation.sql.DataSourceDefinitions;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 
@@ -17,7 +16,6 @@ public class HistoriaClinica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idHistoriaClinica;
 
-    @NotNull
     @Min(value = 1, message="Numero de ficha debe tener como minimo 1 numero")
     @Column(name ="numero_ficha", nullable = false, length = 5)
     private Integer numeroFicha;
@@ -36,10 +34,10 @@ public class HistoriaClinica {
 
     @ManyToOne
     @JoinColumn(
-            name="id_cita",
+            name="cita",
             nullable = false,
             foreignKey = @ForeignKey(name="FK_historia_cita")
     )
-    private Cita idCita;
+    private Cita cita;
 
 }

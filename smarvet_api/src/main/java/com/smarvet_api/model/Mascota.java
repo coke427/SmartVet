@@ -42,9 +42,9 @@ public class Mascota {
 
     @ManyToOne
     @JoinColumn(
-            name="id_cliente",
+            name="cliente",
             nullable = false,
             foreignKey = @ForeignKey(name = "FK_mascota_cliente")
     )
-   private Cliente idCliente;
+   private Cliente cliente;
 }

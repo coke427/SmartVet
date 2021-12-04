@@ -1,10 +1,11 @@
 package com.smarvet_api.model;
 
-import javax.persistence.*;
-import java.sql.Time;
-import java.util.Calendar;
-import java.util.Date;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.util.Calendar;
+
+@Data
 @Entity
 @Table(name="Horario")
 public class Horario {
@@ -13,18 +14,26 @@ public class Horario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+
     @Temporal(TemporalType.DATE)
-    private Date dia;
+    @Column(name="dia_año")
+    private Calendar dia;
 
-    private Time horaInicio;
 
-    private Time horaFin;
+    @Temporal(TemporalType.DATE)
+    @Column(name="fecha_horaInicio")
+    private Calendar fechahoraInicio;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="fecha_horaFin")
+    private Calendar fechahoraFin;
 
     @ManyToOne
     @JoinColumn(
-            name = "id_veterinario",
-            nullable = false,
+            name="id_veterinario",
+            nullable = true,
             foreignKey = @ForeignKey(name="FK_horario_veterinario")
     )
     private Veterinario idVeterinario;
+
 }

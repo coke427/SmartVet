@@ -2,7 +2,6 @@ package com.smarvet_api.controller;
 
 import com.smarvet_api.model.Cliente;
 import com.smarvet_api.service.ClienteService;
-import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +12,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/clientes") ///identificador sustantivos en plural con relacion a la entidad
 
-public class RegistrarCliente {
+public class ClienteController {
 
     private final ClienteService clienteService;
 
-    public RegistrarCliente(ClienteService clienteService) {
+    public ClienteController(ClienteService clienteService) {
         this.clienteService = clienteService;
     }
 

@@ -1,7 +1,6 @@
 package com.smarvet_api.controller;
 
 import com.smarvet_api.model.Horario;
-import com.smarvet_api.model.Veterinario;
 import com.smarvet_api.service.HorarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,20 +25,13 @@ public class HorarioController {
 
     @GetMapping
     public ResponseEntity<List<Horario>> getAll(){
-        return new ResponseEntity<List<Horario>>(this.horarioService.listAll(), HttpStatus.OK);
+        return new ResponseEntity<List<Horario>>(this.horarioService.listHorarios(), HttpStatus.OK);
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Horario> get(@PathVariable Integer id){
         return new ResponseEntity<Horario>(this.horarioService.getHorario(id), HttpStatus.OK);
-    }
-
-    @GetMapping("/byVet")
-    public ResponseEntity<List<Horario>> getByVet(@RequestParam Veterinario veterinario){
-        return new ResponseEntity<List<Horario>>(
-                this.horarioService.listHorariosByVeterinario(veterinario),
-                HttpStatus.OK
-        );
     }
 
     @PutMapping

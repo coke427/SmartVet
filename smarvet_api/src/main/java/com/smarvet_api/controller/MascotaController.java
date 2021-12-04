@@ -11,10 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/mascota")
-public class RegistrarMascota {
+public class MascotaController {
     private final MascotaService mascotaService;
 
-    public RegistrarMascota(MascotaService mascotaService) {
+    public MascotaController(MascotaService mascotaService) {
         this.mascotaService = mascotaService;
     }
 

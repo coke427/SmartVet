@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.sql.Time;
 import java.util.Calendar;
 
 @Data
@@ -18,18 +17,18 @@ public class Cita {
     private Integer id;
 
     @Temporal(TemporalType.DATE)
-    private Calendar fecha;
+    @Column(name="fecha_hora")
+    private Calendar fechaHora;
 
-    private Time hora;
 
     @Size(min = 5, message = "Motivo debe tener 5 caracteres")
-    @Column(name="motivo", nullable = false, length = 100)
+    @Column(name="motivo", nullable = true, length = 100)
     private String motivo;
 
     @ManyToOne
     @JoinColumn(
             name="id_veterinario",
-            nullable = false,
+            nullable = true,
             foreignKey = @ForeignKey(name= "FK_cita_veterinario")
     )
     private Veterinario idVeterinario;
@@ -37,7 +36,7 @@ public class Cita {
     @ManyToOne
     @JoinColumn(
             name="id_mascota",
-            nullable = false,
+            nullable = true,
             foreignKey = @ForeignKey(name= "FK_cita_mascota")
     )
     private Mascota idMascota;

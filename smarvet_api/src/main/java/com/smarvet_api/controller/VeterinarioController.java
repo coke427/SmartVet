@@ -11,10 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/veterinarios")
-public class RegistrarVeterinario {
+public class VeterinarioController {
     private final VeterinarioService veterinarioService;
 
-    public RegistrarVeterinario(VeterinarioService veterinarioService) {
+    public VeterinarioController(VeterinarioService veterinarioService) {
         this.veterinarioService = veterinarioService;
     }
 

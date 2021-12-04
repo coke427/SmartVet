@@ -11,17 +11,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/historiasClinicas")
-public class RegistrarHistoriaClinica {
+public class HistoriaClinicaController {
     private final HistoriaClinicaService historiaClinicaService;
 
-    public RegistrarHistoriaClinica(HistoriaClinicaService historiaClinicaService) {
+    public HistoriaClinicaController(HistoriaClinicaService historiaClinicaService) {
         this.historiaClinicaService = historiaClinicaService;
     }
 
     @PostMapping
     public ResponseEntity<HistoriaClinica> registrarHistoriaClinica (@Valid @RequestBody HistoriaClinica historiaClinica) {
-        HistoriaClinica historiaClinica1 = historiaClinicaService.registrarHistoriaClinica(historiaClinica);
-        return new ResponseEntity<HistoriaClinica>(historiaClinica1, HttpStatus.CREATED);
+        HistoriaClinica historialClinica = historiaClinicaService.registrarHistoriaClinica(historiaClinica);
+        return new ResponseEntity<HistoriaClinica>(historialClinica, HttpStatus.CREATED);
     }
 
     @GetMapping
