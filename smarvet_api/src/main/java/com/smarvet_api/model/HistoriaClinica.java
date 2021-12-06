@@ -32,12 +32,5 @@ public class HistoriaClinica {
     @Column(name ="tratamiento", nullable = false, length = 100)
     private String tratamiento;
 
-    @ManyToOne
-    @JoinColumn(
-            name="cita",
-            nullable = false,
-            foreignKey = @ForeignKey(name="FK_historia_cita")
-    )
-    private Cita cita;
 
 }

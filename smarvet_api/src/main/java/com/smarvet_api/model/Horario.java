@@ -1,12 +1,17 @@
 package com.smarvet_api.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 @Data
 @Entity
+@Builder
+
 @Table(name="Horario")
 public class Horario {
 
@@ -15,9 +20,9 @@ public class Horario {
     private Integer id;
 
 
-    @Temporal(TemporalType.DATE)
-    @Column(name="dia_año")
-    private Calendar dia;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Column(name="dia_año",nullable = false, updatable = false)
+    private LocalDate diaaño;
 
 
     @Temporal(TemporalType.DATE)
