@@ -32,5 +32,11 @@ public class HistoriaClinica {
     @Column(name ="tratamiento", nullable = false, length = 100)
     private String tratamiento;
 
-
+    @ManyToOne
+    @JoinColumn(
+            name="id_mascota",
+            nullable = false,
+            foreignKey = @ForeignKey(name= "FK_HistoriaClinica_mascota")
+    )
+    private Mascota idMascota;
 }

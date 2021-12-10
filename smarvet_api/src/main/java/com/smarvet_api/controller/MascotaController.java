@@ -2,6 +2,7 @@ package com.smarvet_api.controller;
 
 import com.smarvet_api.model.Mascota;
 import com.smarvet_api.service.MascotaService;
+import com.smarvet_api.utils.WrapperResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +20,9 @@ public class MascotaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Mascota>> listarMascota() {
+    public ResponseEntity<WrapperResponse<List<Mascota>>> listarMascota() {
         List<Mascota> mascota = mascotaService.listarMascotas();
-        return new ResponseEntity<List<Mascota>>(mascota, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", mascota).createResponse(HttpStatus.OK);
     }
     @GetMapping("/{id}")
     public ResponseEntity<Mascota> obtenerMascotaPorId(@PathVariable ("id")Integer idMascota){
@@ -31,10 +32,9 @@ public class MascotaController {
     }
 
     @PostMapping
-    public ResponseEntity<Mascota> registrarMascota(@Valid @RequestBody Mascota mascota) {
+    public ResponseEntity<WrapperResponse<Mascota>> registrarMascota(@Valid @RequestBody Mascota mascota) {
         Mascota mascotaNew = mascotaService.registrarMascota(mascota);
-        return new ResponseEntity<Mascota>(mascotaNew, HttpStatus.CREATED);
-
+        return new WrapperResponse<Mascota>(true, "success", mascotaNew).createResponse(HttpStatus.CREATED);
     }
     @PutMapping
     public ResponseEntity<Mascota> modificarMascota(@Valid @RequestBody Mascota mascota) {

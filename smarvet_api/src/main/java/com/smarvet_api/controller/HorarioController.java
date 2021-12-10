@@ -44,7 +44,10 @@ public class HorarioController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteHorario(@PathVariable Integer id){
+        this.horarioService.deleteHorario(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
 }
+
+

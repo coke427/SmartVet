@@ -2,6 +2,7 @@ package com.smarvet_api.controller;
 
 import com.smarvet_api.model.HistoriaClinica;
 import com.smarvet_api.service.HistoriaClinicaService;
+import com.smarvet_api.utils.WrapperResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,15 +20,15 @@ public class HistoriaClinicaController {
     }
 
     @PostMapping
-    public ResponseEntity<HistoriaClinica> registrarHistoriaClinica (@Valid @RequestBody HistoriaClinica historiaClinica) {
+    public ResponseEntity<WrapperResponse<HistoriaClinica>> registrarHistoriaClinica(@Valid @RequestBody HistoriaClinica historiaClinica) {
         HistoriaClinica historialClinica = historiaClinicaService.registrarHistoriaClinica(historiaClinica);
-        return new ResponseEntity<HistoriaClinica>(historialClinica, HttpStatus.CREATED);
+        return new WrapperResponse<HistoriaClinica>(true, "success", historialClinica).createResponse(HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<HistoriaClinica>> listarHistoriaClinica() {
-        List<HistoriaClinica> historiaClinica = historiaClinicaService.listarHistoriaClinica();
-        return new ResponseEntity<List<HistoriaClinica>>(historiaClinica, HttpStatus.CREATED);
+    public ResponseEntity<WrapperResponse<List<HistoriaClinica>>> listarHistoriaClinica() {
+        List<HistoriaClinica> historiaClinica= historiaClinicaService.listarHistoriaClinica();
+        return new WrapperResponse<>(true, "success", historiaClinica).createResponse(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

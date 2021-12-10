@@ -2,6 +2,7 @@ package com.smarvet_api.controller;
 
 import com.smarvet_api.model.Cliente;
 import com.smarvet_api.service.ClienteService;
+import com.smarvet_api.utils.WrapperResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +22,9 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> listarCliente() {
+    public ResponseEntity<WrapperResponse<List<Cliente>>> listarCliente() {
         List<Cliente> cliente = clienteService.listarCliente();
-        return new ResponseEntity<List<Cliente>>(cliente, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", cliente).createResponse(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -33,9 +34,9 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity <Cliente> registrarCliente (@RequestBody Cliente cliente) {
+    public ResponseEntity<WrapperResponse<Cliente>> registrarCliente(@RequestBody Cliente cliente) {
         Cliente cliente1 = clienteService.registrarCliente(cliente);
-        return new ResponseEntity<Cliente>(cliente1, HttpStatus.CREATED);
+        return new WrapperResponse<Cliente>(true, "success", cliente1).createResponse(HttpStatus.CREATED);
     }
 
     @PutMapping
