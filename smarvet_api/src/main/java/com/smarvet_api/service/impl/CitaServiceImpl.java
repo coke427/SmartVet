@@ -1,7 +1,6 @@
 package com.smarvet_api.service.impl;
 
 import com.smarvet_api.model.Cita;
-import com.smarvet_api.model.Veterinario;
 import com.smarvet_api.repositories.CitaRepository;
 import com.smarvet_api.service.CitaService;
 import org.springframework.stereotype.Service;
@@ -34,11 +33,6 @@ public class CitaServiceImpl implements CitaService {
     @Override
     public Cita getCitaById(Integer id) {
         return this.citaRepository.getById(id);
-    }
-
-    @Override
-    public List<Cita> getCitaByVet(Veterinario veterinario) {
-        return this.citaRepository.getCitaByIdVeterinario(veterinario);
     }
 
     @Override
