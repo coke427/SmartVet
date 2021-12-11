@@ -36,14 +36,6 @@ public class CitaServiceImpl implements CitaService {
     }
 
     @Override
-<<<<<<< HEAD
-    public List<Cita> getCitaByVet(Veterinario veterinario) {
-        return null;
-    }
-
-    @Override
-=======
->>>>>>> b3ce53c5abf94dfa82632d5747045cbccdce55eb
     public Cita updateCita(Cita cita) {
         return this.citaRepository.save(cita);
     }
