@@ -31,13 +31,16 @@ public class CitaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cita> get(@PathVariable Integer id){
-        return new ResponseEntity<Cita>(this.citaService.getCitaById(id), HttpStatus.OK);
+    public ResponseEntity<Cita> getCitaById(@PathVariable ("id")Integer id) {
+        Cita cita = citaService.getCitaById(id);
+        return new ResponseEntity<Cita>(cita, HttpStatus.OK);
     }
 
+
     @PutMapping
-    public ResponseEntity<Cita> updateCita(@RequestBody Cita cita){
-        return new ResponseEntity<Cita>(this.citaService.updateCita(cita), HttpStatus.OK );
+    public ResponseEntity<WrapperResponse<Cita>>updateCita(@RequestBody Cita cita){
+        Cita citaUpdate= citaService.updateCita(cita);
+        return new WrapperResponse<Cita>(true, "success", citaUpdate).createResponse(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

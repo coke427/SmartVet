@@ -1,10 +1,11 @@
 package com.smarvet_api.model;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.Calendar;
+import java.util.Date;
 
 @Data
 @Entity
@@ -16,9 +17,10 @@ public class Cita {
     @Column(name="id_cita")
     private Integer id;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name="fecha_hora", nullable=true)
-    private Calendar fechaHora;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="fecha_hora", nullable=false)
+    private Date fechaHora;
 
 
     @Size(min = 5, message = "Motivo debe tener 5 caracteres")

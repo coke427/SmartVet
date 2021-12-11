@@ -31,9 +31,7 @@ public class CitaServiceImpl implements CitaService {
     }
 
     @Override
-    public Cita getCitaById(Integer id) {
-        return this.citaRepository.getById(id);
-    }
+    public Cita getCitaById(Integer id) {return this.citaRepository.getById(id);}
 
     @Override
     public Cita updateCita(Cita cita) {
