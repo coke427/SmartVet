@@ -28,7 +28,7 @@ public class Cita {
     @ManyToOne
     @JoinColumn(
             name="id_mascota",
-            nullable = true,
+            nullable = false,
             foreignKey = @ForeignKey(name= "FK_cita_mascota")
     )
     private Mascota idMascota;
