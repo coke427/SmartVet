@@ -38,7 +38,7 @@ public class CitaServiceImpl implements CitaService {
 
     @Override
     public List<Cita> getCitaByVet(Veterinario veterinario) {
-        return this.citaRepository.getCitaByIdVeterinario(veterinario);
+        return null;
     }
 
     @Override
@@ -48,6 +48,6 @@ public class CitaServiceImpl implements CitaService {
 
     @Override
     public void deleteCita(Integer id) {
-       this.citaRepository.deleteById(id);
+        this.citaRepository.deleteById(id);
     }
 }

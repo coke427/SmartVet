@@ -36,10 +36,11 @@ public class HistoriaClinicaController {
         HistoriaClinica historiaClinica = historiaClinicaService.obtenerHistoriaClinicaPorId(idhistoriaClinica);
         return new ResponseEntity<HistoriaClinica>(historiaClinica, HttpStatus.OK);
     }
+
     @PutMapping
-    public ResponseEntity<HistoriaClinica> modificarHistoriaClinica(@Valid @RequestBody HistoriaClinica historiaClinica) {
-        HistoriaClinica historiaClinicaUpdate = historiaClinicaService.modificarHistoriaClinica(historiaClinica);
-        return new ResponseEntity<HistoriaClinica>(historiaClinicaUpdate, HttpStatus.CREATED);
+    public ResponseEntity<WrapperResponse<HistoriaClinica>>modificarHistoriaClinica(@RequestBody HistoriaClinica historiaClinica){
+        HistoriaClinica historiaClinicaUpdate= historiaClinicaService.modificarHistoriaClinica(historiaClinica);
+        return new WrapperResponse<HistoriaClinica>(true, "success", historiaClinica).createResponse(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
